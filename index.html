@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+        content="RGBSQ-Grasp: Inferring Local Superquadric Primitives from Single RGB image for Graspability-Aware Bin Picking">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RGBSQ-Grasp: Inferring Local Superquadric Primitives from Single RGB image for Graspability-Aware Bin Picking</title>
@@ -258,8 +258,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            Superquadrics (SQ) offer a compact, interpretable shape representation that captures the physical and graspability understanding of objects. In this work, we propose RGBSQGrasp, a grasping framework that leverages superquadric shape primitives and foundation metric depth estimation models to infer grasp poses from a monocular RGB camera—eliminating the need for depth sensors. Our framework integrates a cross-platform dataset generation pipeline, a foundation model-based object point cloud estimation module, a global-local superquadric fitting network, and an SQ-guided grasp pose sampling module. By integrating these components, RGBSQGrasp reliably infers grasp poses through geometric reasoning. Real-world robotic experiments demonstrate a 92\% grasp success rate, highlighting the effectiveness of RGBSQGrasp in packed bin-picking environments. 
           </p>
           <p>
             Our approach augments neural radiance fields
