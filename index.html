@@ -190,6 +190,51 @@
   </div>
 </section>
 
+<section class="section" id="formulas">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">Superquadric Formulas</h2>
+
+    <p><strong>Implicit form.</strong></p>
+    \begin{equation}
+    F(\mathbf{x}) \;=\;
+    \left(
+      \left|\frac{x}{a_x}\right|^{\frac{2}{\epsilon_2}}
+     +\left|\frac{y}{a_y}\right|^{\frac{2}{\epsilon_2}}
+    \right)^{\frac{\epsilon_2}{\epsilon_1}}
+    \;+\;
+    \left|\frac{z}{a_z}\right|^{\frac{2}{\epsilon_1}}
+    \;-\;1,
+    \label{eq:sq-implicit}
+    \end{equation}
+
+    <p class="mt-4">
+      where $\mathbf{x}=[x,y,z]^{\top}\!\in\mathbb{R}^3$ is in the local SQ frame,
+      $a_x,a_y,a_z>0$ are scales, and $\epsilon_1,\epsilon_2\ge 0$ control curvature.
+    </p>
+
+    <p class="mt-5"><strong>Parametric (explicit) form for sampling.</strong></p>
+    \begin{equation}
+    \mathbf{r}(\eta,\omega) \;=\;
+    \begin{bmatrix}
+      a_x\,\cos^{\epsilon_1}\!\eta\,\cos^{\epsilon_2}\!\omega \\
+      a_y\,\cos^{\epsilon_1}\!\eta\,\sin^{\epsilon_2}\!\omega \\
+      a_z\,\sin^{\epsilon_1}\!\eta
+    \end{bmatrix},
+    \qquad
+    \eta\in\left[-\tfrac{\pi}{2},\,\tfrac{\pi}{2}\right],\;
+    \omega\in[-\pi,\,\pi].
+    \label{eq:sq-explicit}
+    \end{equation}
+
+    <p class="mt-4">
+      A full SQ is parameterized by scales $(a_x,a_y,a_z)$, shapes $(\epsilon_1,\epsilon_2)$,
+      and pose $\mathbf{g}=[\mathbf{R},\mathbf{t}]\in SE(3)$ with
+      $\mathbf{R}\in SO(3)$, $\mathbf{t}\in\mathbb{R}^3$.
+      See \eqref{eq:sq-implicit} and \eqref{eq:sq-explicit}.
+    </p>
+  </div>
+</section>
+
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
