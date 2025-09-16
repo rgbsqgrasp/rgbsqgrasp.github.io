@@ -194,7 +194,14 @@
   <div class="container is-max-desktop content">
     <h2 class="title is-3">Superquadric Formulas</h2>
 
-    <p><strong>Implicit form.</strong></p>
+    <p>
+      Superquadrics (SQs) are a compact family of parametric primitives that can model
+      cylinders, spheres, ellipsoids, rounded boxes, and more, by varying a small set of
+      shape exponents and scales. An SQ can be defined by the following
+      <em>implicit</em> function; the surface is where the function equals zero, points
+      with negative value are inside, and positive value are outside:
+    </p>
+
     \begin{equation}
     F(\mathbf{x}) \;=\;
     \left(
@@ -203,30 +210,35 @@
     \right)^{\frac{\epsilon_2}{\epsilon_1}}
     \;+\;
     \left|\frac{z}{a_z}\right|^{\frac{2}{\epsilon_1}}
-    \;-\;1,
+    \;-\;1.
     \label{eq:sq-implicit}
     \end{equation}
 
-  <!-- Visualization of superquadric shapes -->
-  <div class="box" style="max-width: 480px; margin: 1.25rem auto;">
-    <figure class="image">
-      <img src="./static/images/sq_list.png"
-          alt="Grid of superquadrics as ε₁ (rows) and ε₂ (columns) vary">
-    </figure>
-    <p class="has-text-centered is-size-6 has-text-grey">
-      <strong>Figure:</strong> Superquadrics generated from the formulas above.
-      Rows vary the shape exponent \( \epsilon_1 \) (controls vertical curvature);
-      columns vary \( \epsilon_2 \) (controls horizontal curvature).
-      Larger exponents sharpen edges; smaller values round them.
-    </p>
-  </div>
-
-    <p class="mt-4">
-      where $\mathbf{x}=[x,y,z]^{\top}\!\in\mathbb{R}^3$ is in the local SQ frame,
-      $a_x,a_y,a_z>0$ are scales, and $\epsilon_1,\epsilon_2\ge 0$ control curvature.
+    <p>
+      Here $\mathbf{x}=[x,y,z]^{\top}\!\in\mathbb{R}^3$ is expressed in the SQ’s local
+      coordinates; $a_x,a_y,a_z>0$ are axis scales; and
+      $\epsilon_1,\epsilon_2\ge 0$ are shape exponents controlling curvature and
+      “boxiness.” Smaller exponents yield rounder shapes; larger values sharpen faces and edges.
+      The image below visualizes how varying $(\epsilon_1,\epsilon_2)$ changes the shape.
     </p>
 
-    <p class="mt-5"><strong>Parametric (explicit) form for sampling.</strong></p>
+    <!-- Visualization of superquadric shapes -->
+    <div class="box" style="max-width: 820px; margin: 1.25rem auto;">
+      <figure class="image">
+        <img src="./static/images/sq_list.png"
+             alt="Grid of superquadrics as ε₁ (rows) and ε₂ (columns) vary">
+      </figure>
+      <p class="has-text-centered is-size-6 has-text-grey">
+        <strong>Figure.</strong> Rows vary \( \epsilon_1 \) (vertical curvature), columns vary
+        \( \epsilon_2 \) (horizontal curvature). Higher exponents produce squarer silhouettes.
+      </p>
+    </div>
+
+    <p>
+      For surface sampling and rendering, it is convenient to use the following
+      <em>explicit (parametric)</em> form:
+    </p>
+
     \begin{equation}
     \mathbf{r}(\eta,\omega) \;=\;
     \begin{bmatrix}
@@ -240,11 +252,15 @@
     \label{eq:sq-explicit}
     \end{equation}
 
-    <p class="mt-4">
-      A full SQ is parameterized by scales $(a_x,a_y,a_z)$, shapes $(\epsilon_1,\epsilon_2)$,
-      and pose $\mathbf{g}=[\mathbf{R},\mathbf{t}]\in SE(3)$ with
-      $\mathbf{R}\in SO(3)$, $\mathbf{t}\in\mathbb{R}^3$.
-      See \eqref{eq:sq-implicit} and \eqref{eq:sq-explicit}.
+    <p>
+      A full superquadric instance is determined by 11 parameters:
+      three scales $(a_x,a_y,a_z)$, two shape exponents $(\epsilon_1,\epsilon_2)$,
+      and a 6-DoF pose in 3D space.
+      The pose is written as
+      $\mathbf{g}=[\mathbf{R},\mathbf{t}] \in SE(3)$ with
+      $\mathbf{R}\in SO(3)$ the rotation and $\mathbf{t}\in\mathbb{R}^3$ the translation.
+      Equations \eqref{eq:sq-implicit}–\eqref{eq:sq-explicit} are the forms we use for
+      inference, fitting, and point-cloud sampling.
     </p>
   </div>
 </section>
