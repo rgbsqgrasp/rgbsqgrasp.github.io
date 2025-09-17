@@ -2,23 +2,35 @@
 <html>
 <head>
   <style>
-    /* make the figure feel part of the text/equations */
+    /* Make the SQ figure feel integrated with the equations/text */
     #formulas .sq-fig{
-      max-width: 720px;           /* align with text width; tweak 640–800 if you like */
-      margin: 0.75rem auto 1.25rem;
+      max-width: 720px;
+      margin: 0.5rem auto 1rem;
+    }
+    #formulas .sq-fig,
+    #formulas .sq-fig img{
+      box-shadow: none !important;   /* remove card shadow */
+      background: transparent !important;
+      border: 0;
     }
     #formulas .sq-fig img{
       display: block;
       width: 100%;
       height: auto;
-      border-radius: 6px;         /* subtle polish, optional */
+      border-radius: 6px;
     }
     #formulas .sq-caption{
       text-align: center;
       color: #7a7a7a;
       font-size: 0.95rem;
-      margin-top: 0.5rem;
+      margin-top: 0.4rem;
     }
+    /* tighten display-equation spacing above/below the figure */
+    .content .mjx-container[display="true"] { margin: 0.6rem 0 !important; }
+    /* tighten paragraph–figure gap */
+    #formulas p + .sq-fig { margin-top: 0.5rem; }
+    #formulas .sq-fig + p { margin-top: 0.75rem; }
+
     /* tighten MathJax display equation spacing so the figure sits closer */
     .content .mjx-container[display="true"]{ margin: 0.75rem 0 !important; }
   </style>
@@ -234,20 +246,18 @@
       The image below visualizes how varying $(\epsilon_1,\epsilon_2)$ changes the shape.
     </p>
 
-
+    
     
     <!-- Visualization of superquadric shapes -->
     <div class="box" style="max-width: 360px; margin: 1.25rem auto;">
       <!-- Visualization of superquadric shapes -->
       <figure class="sq-fig">
-        <img src="./static/images/sq_list.png"
-             alt="Grid of superquadrics as ε₁ (rows) and ε₂ (columns) vary"
-             loading="lazy">
+        <img src="./static/images/sq_list.png" alt="Grid of superquadrics…">
         <figcaption class="sq-caption">
           <strong>Figure.</strong> Rows vary \( \epsilon_1 \); columns vary \( \epsilon_2 \).
           Higher exponents produce squarer silhouettes.
         </figcaption>
-      </figure>
+      </figure>      
     </div>
     <p>
       For surface sampling and rendering, it is convenient to use the following
