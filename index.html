@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+    /* make the figure feel part of the text/equations */
+    #formulas .sq-fig{
+      max-width: 720px;           /* align with text width; tweak 640–800 if you like */
+      margin: 0.75rem auto 1.25rem;
+    }
+    #formulas .sq-fig img{
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;         /* subtle polish, optional */
+    }
+    #formulas .sq-caption{
+      text-align: center;
+      color: #7a7a7a;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+    /* tighten MathJax display equation spacing so the figure sits closer */
+    .content .mjx-container[display="true"]{ margin: 0.75rem 0 !important; }
+  </style>
+
   <meta charset="utf-8">
   <meta name="description"
         content="RGBSQ-Grasp: Inferring Local Superquadric Primitives from Single RGB image for Graspability-Aware Bin Picking">
@@ -212,13 +234,15 @@
       The image below visualizes how varying $(\epsilon_1,\epsilon_2)$ changes the shape.
     </p>
 
+
+    
     <!-- Visualization of superquadric shapes -->
     <div class="box" style="max-width: 360px; margin: 1.25rem auto;">
       <!-- Visualization of superquadric shapes -->
       <figure class="sq-fig">
         <img src="./static/images/sq_list.png"
-            alt="Grid of superquadrics as ε₁ (rows) and ε₂ (columns) vary"
-            loading="lazy">
+             alt="Grid of superquadrics as ε₁ (rows) and ε₂ (columns) vary"
+             loading="lazy">
         <figcaption class="sq-caption">
           <strong>Figure.</strong> Rows vary \( \epsilon_1 \) (vertical curvature); columns vary
           \( \epsilon_2 \) (horizontal curvature). Higher exponents produce squarer silhouettes.
