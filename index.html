@@ -288,6 +288,30 @@
   </div>
 </section>
 
+<section class="section" id="framework">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">RGBSQ-Grasp Framework</h2>
+
+    <p>
+      Our method addresses the challenge of enabling robots to understand cluttered scenes
+      and identify graspable regions from single monocular RGB input in bin-picking tasks.
+      As shown in <strong>Figure&nbsp;1</strong>, our framework processes scenes in multiple phases:
+      <em>Dataset Generation</em> creates a synthetic dataset to simulate occlusions;
+      the <em>Superquadrics Fitting Network</em> leverages synthetic data to train a network that
+      extracts superquadric primitives from partial point clouds; during inference,
+      <em>SQ-guided Scene Understanding</em> estimates the SQ-represented scene using vision
+      foundation models; and <em>Grasp Pose Sampling</em> generates grasp poses.
+    </p>
+
+    <figure class="sq-fig">
+      <img src="./static/images/RGBSQGrasp.png" alt="RGBSQ-Grasp framework diagram">
+      <figcaption class="sq-caption">
+        <strong>Figure&nbsp;1.</strong> The RGBSQ-Grasp framework: from dataset generation
+        to SQ fitting, SQ-guided scene understanding, and grasp pose sampling.
+      </figcaption>
+    </figure>
+  </div>
+</section>
 
 
 <section class="hero is-light is-small">
